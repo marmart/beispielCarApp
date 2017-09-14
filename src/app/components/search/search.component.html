@@ -1,0 +1,27 @@
+<h1>Search: <small>{{ term }}</small></h1>
+<hr>
+
+<div class="row" *ngIf="cars.length == 0">
+	<div class="col-md-12">
+		<div class="alert alert-info" role="alert">
+			Kein Aut gefunden mit diesen Text: {{ term }}
+		</div>
+	</div>
+</div>
+
+<div class="card-columns">
+	<div class="card animated fadeIn fast" *ngFor="let car of cars; let i = index">
+    <img class="card-img-top img-fluid" [src]="car.img" [alt]="car.marke">
+    <div class="card-block">
+      <h4 class="card-title">{{ car.marke }}</h4>
+      <p class="card-text">{{ car.beschreibung }}</p>
+      <p class="card-text"><small class="text-muted">{{ car.modelJahr }}</small></p>
+	  <button (click)="showCar(i)" 
+		type="button" class="btn btn-outline-primary btn-block">
+		Show more...
+	  </button>
+	  <!-- <a [routerLink]="['/car', i]" class="btn btn-outline-primary">Show more...</a> -->
+    </div>
+  </div>
+  
+</div>

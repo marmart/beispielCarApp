@@ -1,0 +1,36 @@
+<h1 class="animated fadeIn">{{ car.marke | uppercase }}<small> ({{ car.modelJahr | date:'y' }})</small></h1>
+<hr>
+
+<div class="row animated fadeIn fast">
+
+	<div class="col-md-4">
+		<img [src]="car.img" class="img-fluid" [alt]="car.name">
+		<br><br>
+		<a [routerLink]="['/cars']" class="btn btn-outline-danger btn-block">Zurück</a>
+	</div>
+
+	<div class="col-md-8">
+		<h3>{{ car.marke }}</h3>
+		<hr>
+		<p>
+			{{ car.beschreibung }}
+		</p>
+		<div>
+			<img *ngIf="car.logo == 'BMW'" class="img-logo" src="assets/img/bmw.png" alt="BMW">
+			<img *ngIf="car.logo == 'mercedes'" class="img-logo" src="assets/img/mercedes-logo.png" alt="Mercedes">
+			<img *ngIf="car.logo == 'mazda'" class="img-logo" src="assets/img/mazda-logo.png" alt="Mazda">
+			<img *ngIf="car.logo == 'ferrari'" class="img-logo" src="assets/img/ferrari-logo.png" alt="Ferrari">
+			<img *ngIf="car.logo == 'VW'" class="img-logo" src="assets/img/vw-logo.png" alt="VW">
+			<img *ngIf="car.logo == 'opel'" class="img-logo" src="assets/img/opel-logo.png" alt="Opel">
+			<img *ngIf="car.logo == 'skoda'" class="img-logo" src="assets/img/skoda-logo.png" alt="Skoda">
+		</div>
+	</div>
+<br>
+	<div class="col-md-3 text-center">
+		<a [routerLink]="['edit']" class="btn btn-outline-warning btn-block">Edit</a>
+		<a [routerLink]="['new']" class="btn btn-outline-success btn-block">Neu Detail</a>
+	</div>
+	<router-outlet></router-outlet>
+
+</div>
+
